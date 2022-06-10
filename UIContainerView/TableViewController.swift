@@ -23,11 +23,7 @@ class TableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+       
     }
 
     // MARK: - Table view data source
@@ -50,11 +46,10 @@ class TableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let detailVC = parent as? ViewController{//так как ето дочерний тэйбл вью,так как на мейн вью есть контейнер,присваиваем константе  пэрэнт и кастим до нужного родительского вью
-            let trackTitle = imageNameArray[indexPath.row]//константа чтоб постоянно не обращаться к массиву
+        if let detailVC = parent as? ViewController{
+            let trackTitle = imageNameArray[indexPath.row]
         detailVC.imageV.image = UIImage(named: trackTitle)
         detailVC.labelV.text = trackTitle
         }
-    }//метод фиксирует строчку конкретную выбранную через етот метод,тут будел логика передачи в родительские вью контроллер
-//тоесть для передачи вызвали метод из которого можно взять по факту индекс паф и конкртеную строку из колкшн вью
+    }
 }
